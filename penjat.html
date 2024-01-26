@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            function Comprova() {
+                vides = 7;
+                if ((document.getElementById("lletra").value >= "a") && 
+                    (document.getElementById("lletra").value <= "m")){
+                    alert("todo ok");
+                }
+                else {
+                    vides = vides -1;
+                    document.getElementById("vides").innerHTML = vides;
+                }
+                
+            }
+        </script>
+    </head>
+    <body style="background-color:beige">
+        <h1 onmouseover="this.style.color = 'red'"
+            onmouseout="this.style.color ='darkcyan'">
+            Prototip Joc del Penjat</h1>
+        <input type="text" placeholder="Escriu en minúscules" id="lletra"> 
+        <button onclick="Comprova();">Comprovar</button>
+        <h2 onmouseover="this.style.color = 'lime'"
+            onmouseout="this.style.color ='DarkSeaGreen'">
+            Paraula</h2>
+        <p id="bones">- - - - - - -</p>
+        <h2 onmouseover="this.style.color = 'darkblue'"
+            onmouseout="this.style.color ='goldenrod'">
+            Vides</h2>
+        <p id="vides">7</p>
+        <h2 onmouseover="this.style.color = 'MediumSpringGreen'"
+            onmouseout="this.style.color ='brown'">
+            Lletres</h2>
+        <p id="dolentes">- - - - - - -</p>
+    </body>
+</html>
