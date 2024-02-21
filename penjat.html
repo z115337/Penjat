@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link href="penjat.css" rel="stylesheet" type="text/css"/>
         <script>
             vides = 7;
             bones = 0;
@@ -46,12 +47,15 @@
                     vides = vides -1;
                     document.getElementById("vides").innerHTML = vides;
                     alert("Has fallat");
+                    document.getElementById("boom_cloud").play();
                     document.getElementById("dolentes").innerHTML = 
                       document.getElementById("dolentes").innerHTML + " " + lletra; 
                       if (vides == 0) { 
                           alert("Has perdut!");
                           Atura();
                       }
+                    MostraImg();
+                    
                 }  
 
             }
@@ -59,27 +63,110 @@
            document.getElementById("lletra").disabled = true;
             document.getElementById("button").disabled = true;
 
+
             
         }
+        
+        function MostraImg() {
+            switch (vides) {
+                case 6: 
+                    document.getElementById("ahorcado_6").hidden = false;
+                    break;
+                case 5: 
+                    document.getElementById("ahorcado_5").hidden = false;
+                    document.getElementById("ahorcado_6").hidden = true;
+                    break;
+                case 4:
+                     document.getElementById("ahorcado_4").hidden = false;
+                     document.getElementById("ahorcado_5").hidden = true;
+                     break;
+                case 3:
+                     document.getElementById("ahorcado_3").hidden = false;
+                     document.getElementById("ahorcado_4").hidden = true;
+                     break;
+                case 2:
+                     document.getElementById("ahorcado_2").hidden = false;
+                     document.getElementById("ahorcado_3").hidden = true;
+                     break;
+                case 1:
+                     document.getElementById("ahorcado_1").hidden = false;
+                     document.getElementById("ahorcado_2").hidden = true;
+                     break;
+                case 0:
+                     document.getElementById("ahorcado_0").hidden = false;
+                     document.getElementById("ahorcado_1").hidden = true;
+                     break;  
+                     
+                default: 
+                    break;       
+            }
+            
+        }
+        
+        function amaga() {
+         document.getElementById("ahorcado_0").hidden = true;
+         document.getElementById("ahorcado_1").hidden = true;
+         document.getElementById("ahorcado_2").hidden = true;
+         document.getElementById("ahorcado_3").hidden = true;
+         document.getElementById("ahorcado_4").hidden = true;
+         document.getElementById("ahorcado_5").hidden = true;
+         document.getElementById("ahorcado_6").hidden = true;
+     }
         </script>
     </head>
-    <body style="background-color:beige">
+    <body onload="amaga();" style="background-image: url('img/Desert.png');
+          background-size: 640px 480px; background-repeat: no-repeat;">
         <h1 onmouseover="this.style.color = 'red'"
-            onmouseout="this.style.color ='darkcyan'">
+            onmouseout="this.style.color ='white'">
             Prototip Joc del Penjat</h1>
-        <input type="text" placeholder="Escriu en minúscules" id="lletra"> 
+        <input type="text" placeholder="Escriu en minúscules" 
+               id="lletra" maxlength="1">
         <button id="button" onclick="Comprova();">Comprovar</button>
         <h2 onmouseover="this.style.color = 'lime'"
-            onmouseout="this.style.color ='DarkSeaGreen'">
+            onmouseout="this.style.color ='white'">
             Paraula</h2>
         <p id="bones"></p>
-        <h2 onmouseover="this.style.color = 'darkblue'"
-            onmouseout="this.style.color ='goldenrod'">
+        <h2 onmouseover="this.style.color = 'aqua'"
+            onmouseout="this.style.color ='white'">
             Vides</h2>
         <p id="vides">7</p>
         <h2 onmouseover="this.style.color = 'MediumSpringGreen'"
-            onmouseout="this.style.color ='brown'">
+            onmouseout="this.style.color ='white'">
             Lletres</h2>
         <p id="dolentes"></p>
+        <div id="audios">
+            <audio>
+                <source src="aud/mystery.mp3" type="audio/mpeg" id="mystery"></audio>
+            <audio>
+                <source src="aud/miau.mp3" type="audio/mpeg" id="miau"></audio>            
+            <audio>
+                <source src="aud/clock_ticking.mp3" type="audio/mpeg" id="clock_ticking"></audio>
+            <audio>
+                <source src="aud/cheer.mp3" type="audio/mpeg" id="cheer"></audio>
+            <audio>
+                <source src="aud/cat-fight.mp3" type="audio/mpeg" id="cat_fight"></audio>
+            <audio>
+                <source src="aud/boom_cloud.mp3" type="audio/mpeg" id="boom_cloud"></audio>  
+            <audio>
+                <source src="aud/bell_toll_x3.mp3" type="audio/mpeg" id="bell_toll_x3"></audio>
+            <audio>
+                <source src="aud/bell_toll.mp3" type="audio/mpeg" id="bell_toll"></audio>
+        </div>
+        <div id="images">
+            <img id="ahorcado_0" src="img/ahorcado_0.png" alt="" 
+                 style="width:280px;height:270px;"/>
+            <img id="ahorcado_1" src="img/ahorcado_1.png" alt="" 
+                 style="width:280px;height:270px;"/>
+            <img id="ahorcado_2" src="img/ahorcado_2.png" alt="" 
+                 style="width:280px;height:270px;"/>
+            <img id="ahorcado_3" src="img/ahorcado_3.png" alt="" 
+                 style="width:280px;height:270px;"/>
+            <img id="ahorcado_4" src="img/ahorcado_4.png" alt="" 
+                 style="width:280px;height:270px;"/>
+            <img id="ahorcado_5" src="img/ahorcado_5.png" alt="" 
+                 style="width:280px;height:270px;"/>
+            <img id="ahorcado_6" src="img/ahorcado_6.png" alt="" 
+                 style="width:280px;height:270px;"/>
+        </div>
     </body>
 </html>
