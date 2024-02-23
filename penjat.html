@@ -35,11 +35,13 @@
         }        
         if ((lletra >= "a") && (lletra <= "m")){
                     alert("Has encertat");
+                    document.getElementById("miau").play();
               document.getElementById("bones").innerHTML = 
                       document.getElementById("bones").innerHTML + " " + lletra; 
                   bones = bones + 1;
                       if (bones == 7) { 
                           alert("Has guanyat!");
+                          document.getElementById("cheer").play();
                           Atura();
                       }                 
                   }
@@ -52,6 +54,8 @@
                       document.getElementById("dolentes").innerHTML + " " + lletra; 
                       if (vides == 0) { 
                           alert("Has perdut!");
+                          document.getElementById("cat_fight").play();
+                          document.getElementById("bell_toll_x3").play();
                           Atura();
                       }
                     MostraImg();
@@ -135,22 +139,22 @@
             Lletres</h2>
         <p id="dolentes"></p>
         <div id="audios">
-            <audio>
-                <source src="aud/mystery.mp3" type="audio/mpeg" id="mystery"></audio>
-            <audio>
-                <source src="aud/miau.mp3" type="audio/mpeg" id="miau"></audio>            
-            <audio>
-                <source src="aud/clock_ticking.mp3" type="audio/mpeg" id="clock_ticking"></audio>
-            <audio>
-                <source src="aud/cheer.mp3" type="audio/mpeg" id="cheer"></audio>
-            <audio>
+            <audio  id="mystery">
+                <source src="aud/mystery.mp3" type="audio/mpeg"></audio>
+            <audio id="miau">
+                <source src="aud/miau.mp3" type="audio/mpeg"></audio>            
+            <audio id="clock_ticking">
+                <source src="aud/clock_ticking.mp3" type="audio/mpeg"></audio>
+            <audio id="cheer">
+                <source src="aud/cheer.mp3" type="audio/mpeg"></audio>
+            <audio id="cat_fight">
                 <source src="aud/cat-fight.mp3" type="audio/mpeg" id="cat_fight"></audio>
-            <audio>
-                <source src="aud/boom_cloud.mp3" type="audio/mpeg" id="boom_cloud"></audio>  
-            <audio>
-                <source src="aud/bell_toll_x3.mp3" type="audio/mpeg" id="bell_toll_x3"></audio>
-            <audio>
-                <source src="aud/bell_toll.mp3" type="audio/mpeg" id="bell_toll"></audio>
+            <audio id="boom_cloud">
+                <source src="aud/boom_cloud.mp3" type="audio/mpeg"></audio>  
+            <audio id="bell_toll_x3">
+                <source src="aud/bell_toll_x3.mp3" type="audio/mpeg"></audio>
+            <audio id="bell_toll">
+                <source src="aud/bell_toll.mp3" type="audio/mpeg"></audio>
         </div>
         <div id="images">
             <img id="ahorcado_0" src="img/ahorcado_0.png" alt="" 
