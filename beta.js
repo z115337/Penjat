@@ -11,6 +11,7 @@ var paraulespistes = [1, 2, 0, 2, 2, 2, 1, 0, 2];
 
 var aleatori = Math.floor(Math.random() * paraules.length);
 var paraula = paraules[aleatori];
+var pista = pistes[paraulespistes[aleatori]];
 
 for (var i = 0; i < paraula.length; i++) { 
     encertats[i] = "_";
@@ -93,6 +94,10 @@ for (var i = 0; i < paraula.length; i++) {
             
         }
         
+        function Pista(){
+            alert(pista)
+        }
+       
         function MostraImg() {
             switch (vides) {
                 case 6: 
