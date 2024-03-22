@@ -1,5 +1,5 @@
-var paraula = [];
-var bones = ["_", "_", "_", "_", "_", "_", "_"];
+var encertats = [];
+var dolentes = ["_", "_", "_", "_", "_", "_", "_"];
 
 var paraules = ["cordes", "fetge", "forca", "jutges", 
     "jutjat", "mengen", "penjat", "quinta", "setze"];
@@ -12,15 +12,8 @@ var paraulespistes = [1, 2, 0, 2, 2, 2, 1, 0, 2];
 var aleatori = Math.floor(Math.random() * paraules.length);
 var paraula = paraules[aleatori];
 
-var pos = paraula.indexOf(lletra);
-if ((pos != -1) && (lletra != "")) {
-    for (var i = pos; i < paraula.length; i++) {
-        paraula[i] = lletra;
-    }
-}
-
 for (var i = 0; i < paraula.length; i++) { 
-    bones[i] = "_";
+    encertats[i] = "_";
 }
 
             vides = 7;
@@ -53,14 +46,23 @@ for (var i = 0; i < paraula.length; i++) {
             case "ü":
                 lletra = "u"
                 break;
-        }        
-        if ((lletra >= "a") && (lletra <= "m")){
+        }   
+        
+        
+        var pos = paraula.indexOf(lletra);
+        if ((pos != -1) && (lletra != "")) {
+            for (var i = pos; i < paraula.length; i++) {
+                if (paraula[i] == lletra){
+                   encertats[i] = lletra; 
+                }
+            }
+        // if ((lletra >= "a") && (lletra <= "m")){
                     alert("Has encertat");
                     document.getElementById("miau").play();
-              document.getElementById("bones").innerHTML = 
-                      document.getElementById("bones").innerHTML + " " + lletra; 
+              document.getElementById("bones").innerHTML = encertats;
+                      //document.getElementById("bones").innerHTML + " " + lletra; 
                   bones = bones + 1;
-                      if (bones == 7) { 
+                      if (encertats.indexOf("_") == -1) { 
                           alert("Has guanyat!");
                           document.getElementById("cheer").play();
                           Atura();
@@ -135,5 +137,6 @@ for (var i = 0; i < paraula.length; i++) {
          document.getElementById("ahorcado_4").hidden = true;
          document.getElementById("ahorcado_5").hidden = true;
          document.getElementById("ahorcado_6").hidden = true;
+         document.getElementById("bones").innerHTML = encertats;
      }
 
