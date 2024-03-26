@@ -89,6 +89,7 @@ for (var i = 0; i < paraula.length; i++) {
         function Atura() {
            document.getElementById("lletra").disabled = true;
             document.getElementById("button").disabled = true;
+            
 
 
             
