@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            vides = 7;
+            bones = 0;
+
+        function Comprova() {
+            lletra = document.getElementById("lletra").value;   
+            lletra = lletra.toLowerCase();
+            
+
+        switch(lletra){
+            case "á":
+            case "à":
+                lletra = "a"
+                break;
+            case "é":
+            case "è":
+                lletra = "e"
+                break;
+            case "í":
+            case "ï":
+                lletra = "i"
+                break;
+            case "ó":
+            case "ò":
+                lletra = "o"
+                break;
+            case "ú":
+            case "ü":
+                lletra = "u"
+                break;
+        }        
+        if ((lletra >= "a") && (lletra <= "m")){
+                    alert("Has encertat");
+              document.getElementById("bones").innerHTML = 
+                      document.getElementById("bones").innerHTML + " " + lletra; 
+                  bones = bones + 1;
+                      if (bones == 7) { 
+                          alert("Has guanyat!");
+                          Atura();
+                      }                 
+                  }
+                else {
+                    vides = vides -1;
+                    document.getElementById("vides").innerHTML = vides;
+                    alert("Has fallat");
+                    document.getElementById("dolentes").innerHTML = 
+                      document.getElementById("dolentes").innerHTML + " " + lletra; 
+                      if (vides == 0) { 
+                          alert("Has perdut!");
+                          Atura();
+                      }
+                }  
+
+            }
+        function Atura() {
+           document.getElementById("lletra").disabled = true;
+            document.getElementById("button").disabled = true;
+
+
+            
+        }
+        </script>
+    </head>
+    <body>
+        <h1 onmouseover="this.style.color = 'red'"
+            onmouseout="this.style.color ='black'">
+            Prototip Joc del Penjat</h1>
+        <input type="text" placeholder="Escriu en minúscules" 
+               id="lletra" maxlength="1">
+        <button id="button" onclick="Comprova();">Comprovar</button>
+        <h2 onmouseover="this.style.color = 'lime'"
+            onmouseout="this.style.color ='black'">
+            Paraula</h2>
+        <p id="bones"></p>
+        <h2 onmouseover="this.style.color = 'aqua'"
+            onmouseout="this.style.color ='black'">
+            Vides</h2>
+        <p id="vides">7</p>
+        <h2 onmouseover="this.style.color = 'MediumSpringGreen'"
+            onmouseout="this.style.color ='black'">
+            Lletres</h2>
+        <p id="dolentes"></p>
+    </body>
+</html>
