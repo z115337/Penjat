@@ -66,7 +66,7 @@ const Idiomes_dft = [
                     "Perdut": "y has perdido!",
                     "Descansi": "En paz descanse - RIP!",
                     "Puntuacio": "Puntuación:"
-                },
+                }
 ];
            
             var Idiomes = Idiomes_dft;
@@ -233,36 +233,29 @@ for (var i = 0; i < paraula.length; i++) {
                 AlaWeb_SQLite(IdIdioma);
                 Idioma = Idiomes.find(Idioma => Idioma.IdIdioma == IdIdioma);
                 
+                /* 
                 document.title = Idioma.Titol;
-                
-                /*
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
-                document.getElementById("").innerHTML =
+                document.getElementById("Versio").innerHTML = Idioma.Versio;
+                document.getElementById("lletra").placeholder = Idioma.Input;
+                document.getElementById("comprovar").innerHTML = Idioma.Comprovar;
                  */
             }
 
-function AlaWeb_SQLite(IdIdioma) {
-    config = {
-        locateFile: filename => `/dist/${filename}`
-    };
-    alasql('ATTACH SQLITE DATABASE penjat("db/penjatpere.db"); USE PENJAT; \n\
-            SELECT * FROM TblTextosGUI;',
-   [], function(idiomes) {SQL_TblTextosGUI(IdIdioma, idiomes.pop());} 
-           );
-}
+    // Funció per carregar la base de dades penjat.db
+    function AlaWeb_SQLite(IdIdioma) {
+        window.alert("AlaWeb_SQLite IdIdioma = '" + IdIdioma + "'");
+        config = {
+            locateFile: filename => `/dist/${filename}`
+        };
+
+        // Recuperam de la base de dades els TextosGUI per tots els Idiomes
+        alasql('ATTACH SQLITE DATABASE penjat("db/penjat.db"); USE penjat; \n\
+                SELECT * FROM TblTextosGUI;',
+            [], function(idiomes) {Print_Data(Idiomes = idiomes.pop());}
+        //    [], function(idiomes) {SQL_TblTextosGUI(IdIdioma, idiomes.pop());}
+        );
+alert("funciona");
+  } 
 
 function SQL_TblTextosGUI(IdIdioma, TblTextosGUI) {
     Idiomes = TblTextosGUI;
@@ -272,3 +265,19 @@ function SQL_TblTextosGUI(IdIdioma, TblTextosGUI) {
         Idiomes = Idiomes_dft;
     };
 }
+
+ // Print data  
+    function Print_Data(res) {
+        alert("funciona");
+        for (var i in res)
+        {
+           // console.log("row " + i);
+           // document.getElementById("res").innerHTML += "<br>";
+           for (var j in res[i])
+             {
+              // console.log(" " + res[i][j]);
+              // document.getElementById("res").innerHTML += res[i][j] + ", ";
+              window.alert("res[" + i + "][" +j + "] = " + res[i][j]);
+             }
+        }
+    } 
