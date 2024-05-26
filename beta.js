@@ -146,3 +146,5 @@ for (var i = 0; i < paraula.length; i++) {
          document.getElementById("bones").innerHTML = encertats;
      }
 
+// Idiomes:
+//  https://chimerical--treacle--eef905-netlify-app.translate.goog/beta?_x_tr_sl=es&_x_tr_tl=fr&_x_tr_hl=ca&_x_tr_pto=wapp
