@@ -68,7 +68,22 @@ const Idiomes_dft = [
                     "Puntuacio": "Puntuación:"
                 }
 ];
-           
+  
+  // Simulam una Taula de ParaulesPistes, similar a la consulta a la base de dades, amb un array d'objectes
+    const Taula_dft = [
+        // Deixam per defecte les paraules i pistes en Català
+        {"Paraula": "cordes", "Pista": "A ca un penjat, no hi anomenis cordes"},
+        {"Paraula": "fetge", "Pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"},
+        {"Paraula": "forca", "Pista": "A la quinta forca"},
+        {"Paraula": "jutges", "Pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"},
+        {"Paraula": "jutjat", "Pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"},
+        {"Paraula": "mengen", "Pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"},
+        {"Paraula": "penjat", "Pista": "A ca un penjat, no hi anomenis cordes"},
+        {"Paraula": "quinta", "Pista": "A la quinta forca"},
+        {"Paraula": "setze", "Pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"}
+    ];
+    var Taula = Taula_dft;
+
             var Idiomes = Idiomes_dft;
             var Idioma = Idiomes.find(Idioma => Idioma.IdIdioma === "ca");
             //Canviam els diferents literals de la GUI durant l'idioma
@@ -249,12 +264,20 @@ for (var i = 0; i < paraula.length; i++) {
         };
 
         // Recuperam de la base de dades els TextosGUI per tots els Idiomes
-        alasql('ATTACH SQLITE DATABASE penjat("db/penjat.db"); USE penjat; \n\
+        alasql('ATTACH SQLITE DATABASE penjat("../db/penjat.db"); USE penjat;\n\
                 SELECT * FROM TblTextosGUI;',
             [], function(idiomes) {Print_Data(Idiomes = idiomes.pop());}
         //    [], function(idiomes) {SQL_TblTextosGUI(IdIdioma, idiomes.pop());}
         );
-alert("funciona");
+
+        alasql('ATTACH SQLITE DATABASE penjat("../db/penjat.db"); USE penjat;\n\
+               SELECT Paraula, Pista \n\
+               FROM TblParaules INNER JOIN TblPistes \n\
+               ON TblParaules.IdPista = TblPistes.IdPista \n\
+               WHERE TblParaules.IdIdioma = "' + IdIdioma + '";',
+            [], function(taula) {SQL_TblParaulesPistes(IdIdioma, taula.pop());} 
+                ); 
+
   } 
 
 function SQL_TblTextosGUI(IdIdioma, TblTextosGUI) {
