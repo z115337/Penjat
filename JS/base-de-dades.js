@@ -289,6 +289,7 @@ for (var i = 0; i < paraula.length; i++) {
                 AlaWeb_SQLite(IdIdioma);
                 Idioma = Idiomes.find(Idioma => Idioma.IdIdioma == IdIdioma);
                 
+                
                  
          document.title = Idioma.titol;
          document.getElementById("segons").innerHTML = Idioma.segons;
@@ -299,7 +300,9 @@ for (var i = 0; i < paraula.length; i++) {
          document.getElementById("titol").innerHTML = Idioma.Versio;
          document.getElementById("paraulabones").innerHTML = Idioma.Paraula;
          }
-
+aleatori = Math.floor(Math.random() * Taula.length);
+                paraula = Taula[aleatori].Paraula;
+                pista = Taula[aleatori].Pista;
     // Funció per carregar la base de dades penjat.db
     function AlaWeb_SQLite(IdIdioma) {
         window.alert("AlaWeb_SQLite IdIdioma = '" + IdIdioma + "'");
