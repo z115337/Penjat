@@ -16,9 +16,10 @@ document.getElementById("segons").innerHTML=seconds;
 }
 setInterval(timer,1000);
         </script>
-        <h1 onmouseover="this.style.color = 'red'"
+        <h1 id="titol"
+            onmouseover="this.style.color = 'red'"
             onmouseout="this.style.color ='black'">
-            Prototip Joc del Penjat</h1>
+            Prototip Joc del Penjat </h1>
         <select name="Idiomes" id="Idiomes" onchange="CanviarIdioma(this.value)" title="Select">
 <option value="ca">ca</option>
 <option value="es">es</option>
@@ -30,20 +31,24 @@ setInterval(timer,1000);
         <input type="text" placeholder="Escriu en minúscules" 
                id="lletra" maxlength="1">
         <button id="button" onclick="Comprova();">Comprovar</button>
-        <h2 onmouseover="this.style.color = 'lime'"
-            onmouseout="this.style.color ='black'">
+
+        <h2 id="paraulabones" onmouseover="this.style.color = 'lime'"
+            onmouseout="this.style.color ='white'">
             Paraula</h2>
-        <p id="bones"></p>
-        <br><button id="button" onclick="Pista();">Pista</button>
-        <h2 onmouseover="this.style.color = 'aqua'"
-            onmouseout="this.style.color ='black'">
+        <p id="bones">
+            Paraula </p>
+        <br><button id="buttonpista" onclick="Pista();">Pista</button>
+        <h2 id="paraulavides" 
+            onmouseover="this.style.color = 'aqua'"
+            onmouseout="this.style.color ='white'">
             Vides</h2>
         <p id="vides">7</p>
-        <h2 onmouseover="this.style.color = 'MediumSpringGreen'"
-            onmouseout="this.style.color ='black'">
+        <h2 id="parauladolentes" 
+            onmouseover="this.style.color = 'MediumSpringGreen'"
+            onmouseout="this.style.color ='white'">
             Lletres</h2>
-        <h2 id="segons">0</h2>
         <p id="dolentes"></p>
+        <h2 id="segons">0</h2>
         <div id="audios">
             <audio  id="mystery">
                 <source src="../aud/mystery.mp3" type="audio/mpeg"></audio>
