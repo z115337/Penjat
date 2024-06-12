@@ -142,8 +142,7 @@ var pista = pistes[paraulespistes[aleatori]];
 aleatori = Math.floor(Math.random() * Taula.length);
 paraula = Taula[aleatori].Paraula;
 pista = Taula[aleatori].Pista;
-//window.alert("aleatori=" + aleatori + ", paraula=" + paraula + ", pista=" + pista);
-window.alert(Let us go: a la quinta forca / al quinto pino / to the boondocks?);
+window.alert("aleatori=" + aleatori + ", paraula=" + paraula + ", pista=" + pista);
 
 for (var i = 0; i < paraula.length; i++) { 
     encertats[i] = "_";
