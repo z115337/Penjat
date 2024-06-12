@@ -1,4 +1,4 @@
-    // Diferents idiomes per la GUI
+        // Diferents idiomes per la GUI
     const Idiomes_dft = [
         {
             "IdIdioma": "ca",
@@ -142,7 +142,6 @@ var pista = pistes[paraulespistes[aleatori]];
 aleatori = Math.floor(Math.random() * Taula.length);
 paraula = Taula[aleatori].Paraula;
 pista = Taula[aleatori].Pista;
-//pista = Taula[0].Pista;
 //window.alert("aleatori=" + aleatori + ", paraula=" + paraula + ", pista=" + pista);
 window.alert(Let us go: a la quinta forca / al quinto pino / to the boondocks?);
 
@@ -284,7 +283,7 @@ for (var i = 0; i < paraula.length; i++) {
 //  https://chimerical--treacle--eef905-netlify-app.translate.goog/beta?_x_tr_sl=es&_x_tr_tl=fr&_x_tr_hl=ca&_x_tr_pto=wapp
 
             function CanviarIdioma(IdIdioma){
-               // alert("Funciona");
+                alert("Funciona");
                 if((IdIdioma != "ca") && (IdIdioma != "es")){
                     document.getElementById("Idiomes").value = IdIdioma;
                 }
